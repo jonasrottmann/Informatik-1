@@ -6,10 +6,10 @@ public class FindeDenKleinstenWertJUnitTest extends TestCase{
      * "Normales" Feld
      */
     public void testFindeDenKleinstenWert1() {
-        FindeDenKleinstenWert meineLineareRekursion = new FindeDenKleinstenWert();
+        FindeDenKleinstenWert meinefindeDenKleinstenWert = new FindeDenKleinstenWert();
         int[] feld = {4,3,2,6};
         
-        assertEquals(2, meineLineareRekursion.findeDenKleinstenWert(feld));
+        assertEquals(2, meinefindeDenKleinstenWert.findeDenKleinstenWert(feld));
     }
     
     /**
