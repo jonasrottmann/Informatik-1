@@ -10,9 +10,9 @@ import java.io.InputStreamReader;
  * @author pape
  */
 public class Eingabe {
-    
-    private BufferedReader console =   new BufferedReader( new InputStreamReader( System.in ) ); 
-    
+
+    private BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+
     /**
      * Gibt die nächste Eingabezeile als String zurück.
      */
@@ -25,11 +25,11 @@ public class Eingabe {
     }
 
     /**
-     * Gibt die nächste Eingabezeile als int-Wert zurück. Es werden
-     * nur die ersten Ziffer inklusive Vorzeichen berücksichtigt.
+     * Gibt die nächste Eingabezeile als int-Wert zurück. Es werden nur die
+     * ersten Ziffer inklusive Vorzeichen berücksichtigt.
      */
     public int readInt() {
-            return parseInt(readLine());
+        return parseInt(readLine());
     }
 
     /**
@@ -40,6 +40,6 @@ public class Eingabe {
             return Integer.parseInt(zahl);
         } catch (NumberFormatException e) {
             return 0;
-        }   
+        }
     }
 }

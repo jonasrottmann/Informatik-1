@@ -6,6 +6,7 @@ public class Model {
      * Das Spielfeld als 3x3 Array.
      */
     private int[][] spielfeld = new int[3][3];
+    private int spielzugCounter = 0;
 
     /**
      * Gib den Inhalt eines bestimmen Feldes zurück.
@@ -15,21 +16,26 @@ public class Model {
      * @return
      */
     public int getFeld(int zeile, int spalte) {
-        return spielfeld[zeile][spalte];
+            return spielfeld[zeile][spalte];
     }
 
     /**
      * Führt den Zug eines gegebenen Spieler auf die gegebene Position aus.
      * 
-     * @param spieler
+     * @param spieler Spieler 1 oder 2
      * @param zeile
      * @param spalte
      * @return
      */
     public boolean doSpielzug(int spieler, int zeile, int spalte) {
-        if (spielfeld[zeile][spalte] == 0) {
-            spielfeld[zeile][spalte] = (spieler == 1) ? 1 : -1;
-            return true; // Erfolgreich gesetzt
+        if (spieler > 0 && spieler < 3 && zeile >= 0 && zeile < spielfeld.length && spalte >= 0
+                && spalte < spielfeld[zeile].length) {
+            // Fehlerabfang
+            if (spielfeld[zeile][spalte] == 0) {
+                spielfeld[zeile][spalte] = (spieler == 1) ? 1 : -1;
+                spielzugCounter += 1;
+                return true; // Erfolgreich gesetzt
+            }
         }
         return false; // Feld schon besetzt
     }
@@ -44,19 +50,19 @@ public class Model {
     public int pruefeSieg() {
         // Prüfe Zeilen
         for (int zeile = 0; zeile < 3; zeile++) {
-            if ((spielfeld[zeile][0] + spielfeld[zeile][1] + spielfeld[zeile][2]) == -3) {
+            if ((spielfeld[zeile][0] + spielfeld[zeile][1] + spielfeld[zeile][2]) == 3) {
                 return 1;
             }
-            if ((spielfeld[zeile][0] + spielfeld[zeile][1] + spielfeld[zeile][2]) == 3) {
+            if ((spielfeld[zeile][0] + spielfeld[zeile][1] + spielfeld[zeile][2]) == -3) {
                 return 2;
             }
         }
         // Prüfe Spalten
         for (int spalte = 0; spalte < 3; spalte++) {
-            if ((spielfeld[0][spalte] + spielfeld[1][spalte] + spielfeld[2][spalte]) == -3) {
+            if ((spielfeld[0][spalte] + spielfeld[1][spalte] + spielfeld[2][spalte]) == 3) {
                 return 1;
             }
-            if ((spielfeld[0][spalte] + spielfeld[1][spalte] + spielfeld[2][spalte]) == 3) {
+            if ((spielfeld[0][spalte] + spielfeld[1][spalte] + spielfeld[2][spalte]) == -3) {
                 return 2;
             }
         }
@@ -75,7 +81,6 @@ public class Model {
         if ((spielfeld[0][2] + spielfeld[1][1] + spielfeld[2][0]) == -3) {
             return 2;
         }
-
         return 0;
     }
 
@@ -104,5 +109,10 @@ public class Model {
                 spielfeld[i][j] = 0;
             }
         }
+        spielzugCounter = 0;
+    }
+
+    public int getSpielzugCounter() {
+        return spielzugCounter;
     }
 }

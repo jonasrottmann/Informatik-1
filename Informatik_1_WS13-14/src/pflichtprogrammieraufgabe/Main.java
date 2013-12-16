@@ -7,5 +7,8 @@ public class Main {
         View view = new View(model);
         Controller controller = new Controller(model, view);
         
+        while(true){
+            controller.spielen();
+        }
     }
 }

@@ -16,7 +16,7 @@ public class View {
         System.out.println(" " + umbennen(model.getFeld(1, 0)) + " | " + umbennen(model.getFeld(1, 1)) + " | " + umbennen(model.getFeld(1, 2)));
         System.out.println("-----------");
         System.out.println(" " + umbennen(model.getFeld(2, 0)) + " | " + umbennen(model.getFeld(2, 1)) + " | " + umbennen(model.getFeld(2, 2)));
-        
+        System.out.println();
     }
     
     /**
@@ -32,6 +32,17 @@ public class View {
             return 'O';
         }else{
             return ' ';
+        }
+    }
+    
+    /**
+     * 
+     */
+    public void siegerNachricht(){
+        printSpielfeld();
+        if (model.pruefeSieg() != 0) {
+            System.out.println("Glückwunsch! Spieler " + ((model.pruefeSieg() == 1) ? "X" : "O") + " hat gewonnen!");
+            System.out.println();
         }
     }
 }
