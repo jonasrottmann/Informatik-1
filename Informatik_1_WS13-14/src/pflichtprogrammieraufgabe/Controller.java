@@ -12,34 +12,29 @@ public class Controller {
 
     public void spielen() {
         while (model.pruefeSieg() == 0 & model.getSpielzugCounter() < 9) {
+            int zeile, spalte;
+            
             view.printSpielfeld(); // Spielfeld zeigen
 
-            if (model.getSpielzugCounter() % 2 == 0) { // Ansagen wer am Zug ist
-                System.out.println("Spieler X ist am Zug.");
-            } else {
-                System.out.println("Spieler O ist am Zug.");
-            }
-
-            System.out.print("Gibt die Zeilennummer ein (0,1,2): "); // Zeile
-                                                                     // anfordern
-            int zeile = eingabe.readInt();
-            System.out.print("Gibt die Spaltennummer ein (0,1,2): "); // Spalte
-                                                                      // anfordern
-            int spalte = eingabe.readInt();
-            System.out.println();
-
+            view.spielerAnsagen();
+            view.zeileAnfordern();
+            zeile = eingabe.readInt();
+            view.spalteAnfordern();
+            spalte = eingabe.readInt();
+            
             if (!model.doSpielzug((model.getSpielzugCounter() % 2) + 1, zeile, spalte)) {
-                System.out.println("Zug nicht erlaubt. Erneut eingeben!");
-                System.out.println();
+                view.zugFehler();
             }else{
-                System.out.println("Okay.");
-                System.out.println();
+                view.zugErfolgreich();
             }
         }
         if (model.pruefeSieg() != 0) {
-            view.siegerNachricht();
+            view.printSpielfeld();
+            if (model.pruefeSieg() != 0) {
+                view.siegerKüren();
+            }
         } else {
-            System.out.println("Unentschieden!");
+            view.unentschieden();
         }
         model.resetFeld();
     }

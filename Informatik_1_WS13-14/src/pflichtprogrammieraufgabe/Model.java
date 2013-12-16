@@ -32,8 +32,8 @@ public class Model {
                 && spalte < spielfeld[zeile].length) {
             // Fehlerabfang
             if (spielfeld[zeile][spalte] == 0) {
-                spielfeld[zeile][spalte] = (spieler == 1) ? 1 : -1;
                 spielzugCounter += 1;
+                spielfeld[zeile][spalte] = (spieler == 1) ? 1 : -1;
                 return true; // Erfolgreich gesetzt
             }
         }
