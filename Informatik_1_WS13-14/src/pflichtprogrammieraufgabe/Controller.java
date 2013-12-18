@@ -9,11 +9,14 @@ public class Controller {
         this.view = view;
         this.model = model;
     }
-
+    
+    /**
+     * Startet das Spiel.
+     */
     public void spielen() {
         while (model.pruefeSieg() == 0 & model.getSpielzugCounter() < 9) {
             int zeile, spalte;
-            
+
             view.printSpielfeld(); // Spielfeld zeigen
 
             view.spielerAnsagen();
@@ -21,17 +24,17 @@ public class Controller {
             zeile = eingabe.readInt();
             view.spalteAnfordern();
             spalte = eingabe.readInt();
-            
+
             if (!model.doSpielzug((model.getSpielzugCounter() % 2) + 1, zeile, spalte)) {
                 view.zugFehler();
-            }else{
+            } else {
                 view.zugErfolgreich();
             }
         }
         if (model.pruefeSieg() != 0) {
             view.printSpielfeld();
             if (model.pruefeSieg() != 0) {
-                view.siegerKüren();
+                view.sieg();
             }
         } else {
             view.unentschieden();

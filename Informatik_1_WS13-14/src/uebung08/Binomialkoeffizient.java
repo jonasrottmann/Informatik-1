@@ -1,6 +1,6 @@
 package uebung08;
 /**
- * Eine Klasse zur rekursiven Berechnung des Binomialkoeffizienten n ??ber k mit Hilfe des Pascal'schen Dreiecks.
+ * Eine Klasse zur rekursiven Berechnung des Binomialkoeffizienten n über k mit Hilfe des Pascal'schen Dreiecks.
  *                 1
  *              1       1
  *          1       2       1
@@ -15,14 +15,14 @@ public class Binomialkoeffizient {
     private int aufrufzaehler = 0;
 
     /**
-     * Berechnet den Binomialkoeffizienten von <code>n</code> ??ber
+     * Berechnet den Binomialkoeffizienten von <code>n</code> über
      * <code>k</code> mit Hilfe des Pascal'schen Dreiecks.
      * 
      * @param n
      *            Zeile im Pascal'schen Dreieck
      * @param k
      *            Stelle im Pascal'schen Dreieck
-     * @return Den Binomialkoeffizienten <code>n</code> ??ber <code>k</code>
+     * @return Den Binomialkoeffizienten <code>n</code> über <code>k</code>
      */
     public long getBinomialKoeffizient(int n, int k) {
         aufrufzaehler++;
@@ -36,13 +36,13 @@ public class Binomialkoeffizient {
     }
 
     /**
-     * Gibt die Anzahl der Rekusiven Aufrufe zur??ck.
+     * Gibt die Anzahl der Rekusiven Aufrufe zurück.
      * 
      * @return Die Anzahl der Rekursiven Aufrufe.
      */
     public int getAufrufzaehler() {
         return aufrufzaehler - 1; // eins abziehen, da erster Methodenaufruf
-                                  // nicht als "Rekursiver Aufruf" z??hlt
+                                  // nicht als "Rekursiver Aufruf" zählt
     }
 
     /**

@@ -6,8 +6,9 @@ public class Main {
         Model model = new Model();
         View view = new View(model);
         Controller controller = new Controller(model, view);
-        
-        while(true){
+
+        while (true) {
+            // Endlosschleife um Spiel direkt neuzustarten
             controller.spielen();
         }
     }

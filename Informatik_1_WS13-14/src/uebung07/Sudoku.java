@@ -10,7 +10,7 @@ public class Sudoku {
     private boolean[] checkliste = new boolean[9];
     
     /**
-     * F??llt das Feld <code>checkliste</code> mit false.
+     * Füllt das Feld <code>checkliste</code> mit false.
      */
     private void checklisteZurueksetzen() {
         for (int i = 0; i < 9; i++) {
@@ -19,10 +19,10 @@ public class Sudoku {
     }
 
     /**
-     * Erzeugt ein neues Sudoku mit den Werten der gegebenen L??sung.
+     * Erzeugt ein neues Sudoku mit den Werten der gegebenen Lösung.
      * 
      * @param sudoku
-     *            Als zweidimensionales, symmetrisches 9x9 int-Feld, gef??llt mit
+     *            Als zweidimensionales, symmetrisches 9x9 int-Feld, gefüllt mit
      *            Werten von 1 bis 9.
      */
     public Sudoku(int[][] sudoku) {
@@ -31,7 +31,7 @@ public class Sudoku {
 
     /**
      * 
-     * Methode um zu pr??fen ob ein Sudoku korrekt gel??st wurde. Pr??ft zuerst ob
+     * Methode um zu prüfen ob ein Sudoku korrekt gelöst wurde. Prüft zuerst ob
      * in jeder Zeile die Zahlen von 1 bis 9 jeweils einmal vorkommen, danach
      * die Spalten und am Schluss jeden 3x3 Block.
      * <table>
@@ -65,7 +65,7 @@ public class Sudoku {
      * @return
      */
     public boolean pruefen() {
-        // Zeilen ??berpr??fen
+        // Zeilen prüfen
         for (int zeile = 0; zeile < sudoku.length; zeile++) {
             for (int stelle = 0; stelle < sudoku[zeile].length; stelle++) {
                 if(sudoku[zeile][stelle] > 9){
@@ -78,7 +78,7 @@ public class Sudoku {
             }
             checklisteZurueksetzen();
         }
-        // Spalten pr??fen
+        // Spalten prüfen
         for (int spalte = 0; spalte < sudoku.length; spalte++) {
             for (int stelle = 0; stelle < sudoku[spalte].length; stelle++) {
                 if (checkliste[sudoku[stelle][spalte] - 1]) {
@@ -89,7 +89,7 @@ public class Sudoku {
             }
             checklisteZurueksetzen();
         }
-        // Bl??cke pr??fen
+        // Blöcke prüfen
         for (int k = 0; k < 3; k++) {
             for (int n = 0; n < 3; n++) {
                 for (int zeile = n * 3; zeile < (n * 3) + 3; zeile++) {

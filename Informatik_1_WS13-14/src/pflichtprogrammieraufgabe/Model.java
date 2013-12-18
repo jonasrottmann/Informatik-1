@@ -12,25 +12,29 @@ public class Model {
      * Gib den Inhalt eines bestimmen Feldes zurück.
      * 
      * @param zeile
-     * @param reihe
-     * @return
+     *            Die gewünschte Zeile (0, 1, 2).
+     * @param spalte
+     *            Die gewünschte Spalte (0, 1, 2).
+     * @return Inhalt eines gegebenen Feldes.
      */
     public int getFeld(int zeile, int spalte) {
-            return spielfeld[zeile][spalte];
+        return spielfeld[zeile][spalte];
     }
 
     /**
      * Führt den Zug eines gegebenen Spieler auf die gegebene Position aus.
      * 
-     * @param spieler Spieler 1 oder 2
+     * @param spieler
+     *            Spieler 1 oder 2
      * @param zeile
+     *            Die Zielreihe (0, 1, 2).
      * @param spalte
+     *            Die Zielspalte (0, 1, 2).
      * @return
      */
     public boolean doSpielzug(int spieler, int zeile, int spalte) {
         if (spieler > 0 && spieler < 3 && zeile >= 0 && zeile < spielfeld.length && spalte >= 0
-                && spalte < spielfeld[zeile].length) {
-            // Fehlerabfang
+                && spalte < spielfeld[zeile].length) { // Fehlerabfang
             if (spielfeld[zeile][spalte] == 0) {
                 spielzugCounter += 1;
                 spielfeld[zeile][spalte] = (spieler == 1) ? 1 : -1;
@@ -45,7 +49,7 @@ public class Model {
      * 
      * @return <code>1</code> falls Spieler 1 gewonnen hat, <code>2</code> falls
      *         Spieler 2 gewonnen hat, <code>0</code> wenn es (noch) keinen
-     *         Sieger gibt
+     *         Sieger gibt.
      */
     public int pruefeSieg() {
         // Prüfe Zeilen
@@ -112,6 +116,11 @@ public class Model {
         spielzugCounter = 0;
     }
 
+    /**
+     * Gibt die Anzahl der verbrauchten Spielzüge zurück.
+     * 
+     * @return Die Anzahl der verbrauchten Spielzüge.
+     */
     public int getSpielzugCounter() {
         return spielzugCounter;
     }

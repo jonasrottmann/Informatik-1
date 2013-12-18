@@ -4,12 +4,12 @@ package uebung08;
  * @author jonas
  * 
  */
-public class FindeDenKleinstenWert {
+public class KleinsterWert {
 
     private int minimum;
 
     /**
-     * Gibt den kleinsten Wert des ??bergebenen Feldes zur??ck.
+     * Gibt den kleinsten Wert des übergebenen Feldes zurück.
      * 
      * @param feld
      *            Das zu durchsuchende Feld.
@@ -24,7 +24,7 @@ public class FindeDenKleinstenWert {
      * Findt den kleinsten Wert in einem int-Feld und gibt diesen zur??ck.
      * 
      * @param feld
-     *            int-Feld beliebiger L??nge
+     *            int-Feld beliebiger Länge
      * @param position
      *            zum Start immer 0
      * @return den kleinsten Wert des Feldes
@@ -42,7 +42,13 @@ public class FindeDenKleinstenWert {
         }
         return findeDenKleinstenWertRekursiv(feld, position + 1);
     }
-
+    
+    
+    
+    
+    
+    
+    
     private int findeDenKleinstenWertIterativ(int[] feld) {
         int minimum = feld[0];
         for (int i = 1; i < feld.length; i++) {
