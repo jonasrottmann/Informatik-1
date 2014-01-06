@@ -6,7 +6,7 @@ package uebung08;
  */
 public class KleinsterWert {
 
-    private int minimum;
+    private int minimum = Integer.MAX_VALUE;
 
     /**
      * Gibt den kleinsten Wert des übergebenen Feldes zurück.
@@ -17,11 +17,12 @@ public class KleinsterWert {
      */
     public int findeDenKleinstenWert(int[] feld) {
         return findeDenKleinstenWertRekursiv(feld, 0);
-        //return findeDenKleinstenWertIterativ(feld);
+        
+        // return findeDenKleinstenWertIterativ(feld);
     }
 
     /**
-     * Findt den kleinsten Wert in einem int-Feld und gibt diesen zur??ck.
+     * Findt den kleinsten Wert in einem int-Feld und gibt diesen zurück.
      * 
      * @param feld
      *            int-Feld beliebiger Länge
@@ -31,9 +32,8 @@ public class KleinsterWert {
      */
     private int findeDenKleinstenWertRekursiv(int[] feld, int position) {
         if (feld == null || feld.length == 0) {
+            // Fehlerabfang
             return 0;
-        } else if (position == 0) {
-            minimum = feld[0];
         } else if (feld[position] < minimum) {
             minimum = feld[position];
         }

@@ -54,4 +54,5 @@ public class KleinsterWertJUnitTest extends TestCase{
         
         assertEquals(0, meinKleinsterWert.findeDenKleinstenWert(null));
     }
+    
 }

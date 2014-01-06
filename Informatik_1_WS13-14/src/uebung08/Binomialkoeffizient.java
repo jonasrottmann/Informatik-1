@@ -46,7 +46,7 @@ public class Binomialkoeffizient {
     }
 
     /**
-     * Setzt den Aufrufz??hler wieder auf 0.
+     * Setzt den Aufrufzähler wieder auf 0.
      */
     public void resetAufrufzaehler() {
         aufrufzaehler = 0;
